@@ -30,6 +30,7 @@ public class PermissInterceptor implements HandlerInterceptor {
      * @return true为放行 false拦截
      * @throws Exception
      *
+     *
      */
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String requestURI = request.getRequestURI();
