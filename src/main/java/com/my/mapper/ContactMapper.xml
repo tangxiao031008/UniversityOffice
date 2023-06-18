@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.dao.ContactDao">
+    <insert id="addContact" parameterType="com.my.model.Contact">
+        INSERT INTO contacts (first_name, last_name, email, phone_number, address)
+        VALUES (#{firstName}, #{lastName}, #{email}, #{phoneNumber}, #{address})
+    </insert>
+
+    <select id="searchContacts" resultType="com.my.model.Contact">
+        SELECT * FROM contacts
+        WHERE first_name LIKE CONCAT('%', #{keyword}, '%')
+        OR last_name LIKE CONCAT('%', #{keyword}, '%')
+        OR email LIKE CONCAT('%', #{keyword}, '%')
+        OR phone_number LIKE CONCAT('%', #{keyword}, '%')
+        OR address LIKE CONCAT('%', #{keyword}, '%')
+    </select>
+
+    <delete id="deleteContact" parameterType="int">
+        DELETE FROM contacts WHERE id = #{id}
+    </delete>
+
+    <update id="updateContact" parameterType="com.my.model.Contact">
+        UPDATE contacts SET
+        first_name = #{firstName},
+        last_name = #{lastName},
+        email = #{email},
+        phone_number = #{phoneNumber},
+        address = #{address}
+        WHERE id = #{id}
+    </update>
+
+
+</mapper>
