@@ -8,7 +8,7 @@ import java.util.List;
 @Repository
 public interface ContactDao {
 
-    List<Contact> queryAllContacts();
+    List<Contact> queryAllContact();
     void addContact(Contact contact);
     void deleteContact(int id);
     void updateContact(Contact contact);
