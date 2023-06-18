@@ -41,8 +41,8 @@ public class ContactController {
 
     @GetMapping("/search")
     @ResponseBody
-    public List<Contact> searchContacts(@RequestParam String keyword) {
-        return contactService.searchContacts(keyword);
+    public List<Contact> searchContacts(@RequestParam String name) {
+        return contactService.searchContacts(name);
     }
 
     @PostMapping("/createGroup")
