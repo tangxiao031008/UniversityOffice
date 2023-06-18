@@ -1,11 +1,14 @@
 package com.my.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.my.model.Contact;
 import com.my.model.Group;
 import com.my.service.ContactService;
 import com.my.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -17,6 +20,16 @@ public class ContactController {
 
     @Autowired
     private GroupService groupService;
+
+    @RequestMapping("/allContacts")
+    public String queryAllContacts(@RequestParam(name = "pn", defaultValue = "1") Integer pn, Model model) {
+        PageHelper.startPage(pn, 10);// 第pn页，每页10条记录
+        List<Contact> contacts = contactService.queryALLContacts();
+        // 用PageInfo对结果进行包装
+        PageInfo pageInfo = new PageInfo(contacts);
+        model.addAttribute("pageInfo", pageInfo);
+        return "allContacts";
+    }
 
     @PostMapping("/add")
     @ResponseBody

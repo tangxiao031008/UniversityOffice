@@ -11,6 +11,9 @@
 
     <!-- 数据源配置 -->
     <!-- 配置连接池、数据库驱动等 -->
+    <context:property-placeholder location="classpath:db.properties"/>
+
+
 
     <!-- MyBatis 配置 -->
     <!-- 配置 SqlSessionFactory、MapperScannerConfigurer 等 -->

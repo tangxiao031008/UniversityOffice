@@ -5,6 +5,8 @@ import com.my.model.Contact;
 import java.util.List;
 
 public interface ContactService {
+
+    List<Contact> queryALLContacts();
     void addContact(Contact contact);
     void deleteContact(int id);
     void updateContact(Contact contact);

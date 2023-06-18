@@ -13,6 +13,11 @@ public class ContactServiceImpl implements ContactService {
     private ContactDao contactDao;
 
     @Override
+    public List<Contact> queryALLContacts() {
+        return null;
+    }
+
+    @Override
     public void addContact(Contact contact) {
         contactDao.addContact(contact);
     }

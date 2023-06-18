@@ -3,6 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.my.dao.ContactDao">
+
+    <select id="queryALLContacts" resultType="com.my.vo.Contact">
+        SELECT * FROM contact
+    </select>
+
     <insert id="addContact" parameterType="com.my.model.Contact">
         INSERT INTO contacts (first_name, last_name, email, phone_number, address)
         VALUES (#{firstName}, #{lastName}, #{email}, #{phoneNumber}, #{address})
