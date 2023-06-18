@@ -16,6 +16,7 @@ public class PermissInterceptor implements HandlerInterceptor {
     AntPathMatcher pathMatcher = new AntPathMatcher();
 
 
+
     /**
      * 默认页面、登陆相关页面、注册相关页面放行不拦截
      * role：1为普通用户  2为管理员
